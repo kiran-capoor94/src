@@ -7,3 +7,9 @@ Django
 django-model-utils
 
 psycopg2
+
+django-jet
+
+django-allauth
+
+pillow

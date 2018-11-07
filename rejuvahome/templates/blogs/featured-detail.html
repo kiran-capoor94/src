@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+{{ object.title }} <br />
+{{ object.content }} <br />
+{% if object.featured_image %}
+<img src='{{ object.featured_image.url }}' class='img-fluid' />
+{% endif %}
+{% endblock content %}

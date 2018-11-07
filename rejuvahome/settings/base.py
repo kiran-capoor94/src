@@ -8,9 +8,10 @@ root = lambda *x: os.path.join(BASE_DIR, *x)
 
 sys.path.insert(0, root('apps'))
 
+SITE_ID = 1
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'CHANGE THIS!!!'
+SECRET_KEY = 'alskdjno12312098#nn23)anstt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -18,15 +19,24 @@ IN_TESTING = sys.argv[1:2] == ['test']
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'users.User'
+
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles'
+    'django.contrib.staticfiles',
+
+    'blogs',
+    'tags',
+    'users',
 ]
 
 PROJECT_APPS = []
@@ -79,12 +89,25 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = (root('assets'))
 
 # Additional locations of static files
 
 STATICFILES_DIRS = (
-    root('assets'),
+    # root('assets'),
 )
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+)
+
+
+# Media files
+
+MEDIA_ROOT = (root('assets/media'))
+MEDIA_URL = '/media/'
+
 
 TEMPLATES = [
     {
@@ -108,6 +131,18 @@ TEMPLATES = [
     }
 ]
 
+# Caches
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    },
+    'inmemory': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'TIMEOUT': 300,
+    }
+}
+
 # Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -124,6 +159,11 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+# Importing Allauth package and defining its settings
+LOGIN_URL ='login'
+LOGIN_REDIRECT_URL = 'home'
+LOGOUT_REDIRECT_URL = 'home'
 
 
 # .local.py overrides all the common settings.

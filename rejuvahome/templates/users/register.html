@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!--=================================
+ signup-->
+<section class="login-box-main login-gradient-03 height-100vh page-section-ptb parallax" data-jarallax='{"speed": 0.6}'
+    style="background-image: url('video/video.jpg');" data-jarallax-video="mp4:video/video.mp4,webm:video/video.webm,ogv:video/video.ogv">
+    <div class="login-box-main-middle">
+        <div class="container">
+            <div class="row row-eq-height no-gutter">
+                <div class="col-md-2 col-md-offset-1">
+                    <div class="login-box-left  white-bg">
+                        <img class="logo-small" src="images/logo-icon-dark.png" alt="">
+                        <ul class="nav">
+                            <li><a href="{% url 'users:login' %}"> <i class="ti-user"></i> Login</a></li>
+                            <li class="active"><a href="{% url 'users:register' %}"> <i class="ti-pencil-alt"></i> Signup</a></li>
+                        </ul>
+                        <div class="social-icons color-hover clearfix pos-bot pb-30 pl-30">
+                            <ul>
+                                <li class="social-facebook"><a href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="social-twitter"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="social-instagram"><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 theme-bg">
+                    <div class="login-box pos-r text-white login-box-theme">
+                        <h2 class="text-white mb-20">Welcome to Rejuva Aesthetica</h2>
+                        <p class="mb-10 text-white">Create tailor-cut websites </p>
+                        <p class="text-white">The exclusive multi-purpose responsive template.</p>
+                        <ul class="list-unstyled list-inline pos-bot pb-40">
+                            <li><a class="text-white" href="#"> Terms of Use</a> </li>
+                            <li><a class="text-white" href="{% url 'privacy-policy' %}"> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="login-box pb-50 clearfix white-bg">
+                        <h3 class="mb-30">Signup</h3>
+                        <div class="row">
+                            <div class="section-field mb-20 col-sm-6">
+                                <label class="mb-10" for="name">First name* </label>
+                                <input id="name" class="web form-control" type="text" placeholder="First name" name="web">
+                            </div>
+                            <div class="section-field mb-20 col-sm-6">
+                                <label class="mb-10" for="name">Last name* </label>
+                                <input id="name" class="web form-control" type="text" placeholder="Last name" name="web">
+                            </div>
+                        </div>
+                        <div class="section-field mb-20">
+                            <label class="mb-10" for="name">Email* </label>
+                            <input type="email" placeholder="Email*" class="form-control" name="email">
+                        </div>
+                        <div class="section-field mb-20">
+                            <label class="mb-10" for="Password">Password* </label>
+                            <input id="Password" class="Password form-control" type="password" placeholder="Password"
+                                name="Password">
+                        </div>
+                        <a href="#" class="button">
+                            <span>Signup</span>
+                            <i class="fa fa-check"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--=================================
+Signup-->
+{% endblock content %}

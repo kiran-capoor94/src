@@ -1,0 +1,46 @@
+<div class="masonry-item">
+        <div class="blog-entry mb-10">
+            {% if obj.featured_image %}
+            <div class="entry-image clearfix">
+                <img class="img-responsive" src="{{ obj.featured_image.url }}" alt="">
+            </div>
+            {% endif %}
+            <div class="blog-detail">
+                <div class="entry-title mb-10">
+                    <a href="{% url 'blogs:detail' slug=obj.slug %}">{{ obj.title }}</a>
+                </div>
+                <div class="entry-meta mb-10">
+                    <ul>
+                        <li> <i class="far fa-folder-open"></i> <a href="#">{{ obj.category }}</a></li>
+                        <li><a href="{%url  'blogs:archive' %}"><i class="far fa-calendar"></i> {{ obj.timestamp }} </a></li>
+                    </ul>
+                </div>
+                <div class="entry-content">
+                    <p>{{ blog.content | striptags | safe | truncatewords:5 }}</p> 
+                </div>
+                <div class="entry-share clearfix">
+                    <div class="entry-button">
+                        <a class="button arrow" href="{% url 'blogs:detail' slug=obj.slug %}">Read More<i class="fa fa-angle-right"
+                                aria-hidden="true"></i></a>
+                    </div>
+                    <div class="social list-style-none pull-right">
+                        <strong>Share : </strong>
+                        <ul>
+                            <li>
+                                <a href="#"> <i class="fab fa-facebook"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fab fa-twitter"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fab fa-pinterest-p"></i> </a>
+                            </li>
+                            <li>
+                                <a href="#"> <i class="fab fa-dribbble"></i> </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
